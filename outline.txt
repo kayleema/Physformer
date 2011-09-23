@@ -1,0 +1,87 @@
+|==================================|
+|======== CLASSES FOR PHASE 1 =====|
+|==================================|
+
+-----------------------------------
+Starter   #creates the window, handles timing, does menus...
+    level_list
+    current_level
+    run()
+-----------------------------------
+Level
+    element_list
+    screen_x
+    screen_y
+    draw(screen) #some graphics variable must be supplied (screen maybe)
+    sim(tmint)
+-----------------------------------
+Element   #anything you see
+    myworld #the world this element is in
+    x, y, w, h, vx, vy
+    graphics
+    touches(Element)
+    within_screen()
+    sim(tmint)
+    #no need for draw here.  I think that world will just take 
+    #the graphics object from each element and ask it to draw
+-----------------------------------
+Player(Element)
+    run_speed
+    jump_speed
+    health = 100
+    #the following store which arrow keys are currently pressed
+    moving_left, moving_right, moving_up, moving_down
+-----------------------------------
+Terrain(Element)
+-----------------------------------
+Block(Element)
+    collideBlock()
+-----------------------------------
+Graphics
+    element #the element this is graphics for
+    draw(screen, x, y)  #draw at x, y on screen
+
+
+
+
+|==================================|
+|======= CLASSES FOR PHASE 2 ======|
+|==================================|
+
+-----------------------------------
+#I was just thinking that there is probably not much to be 
+#saved by putting all graphics in one file?
+ImageGraphics(Graphics)  #simple graphics with just an image that doesn't animate
+    image
+    offset_x = 0    #initial offset (0, 0) means the image origin will be at the corner of the block
+                    #set this to something else )negative) if you want the image to extend outside box boundaries
+    offset_y = 0    #for example, a tree will really just be a trunk, but the leaves should extend out
+    draw(screen, x, y)
+-----------------------------------
+TiledGraphics(Graphics) #will tile a large block with smaller edge/center/corner images
+    corner_img, side_img, top_img, bottom_img, center_img
+    draw(screen, x, y)
+-----------------------------------
+AnimationSet(Graphics)
+    play #whether or not the animation is playing
+    mode #which animation to play
+    animation_list  #list of Animation objects
+    current_frame
+    draw(screen, x, y)
+    sim(tmint)  #increments the frame
+-----------------------------------
+Animation
+    __init__(basefilename, extension, num_frames)  #will load all images of form <basefilename>###<extension>>
+    image_list  #list of images that make up the animation
+    time_between   #time between frames
+
+-----------------------------------
+Tippie(Element) #for things that tip (like trees)
+-----------------------------------
+Spike(Element) #hurts you
+-----------------------------------
+Button(Element) #opens a door
+-----------------------------------
+Door(Element) #opened by button
+-----------------------------------
+TutorialLevel(Level)
