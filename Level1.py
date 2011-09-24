@@ -7,6 +7,7 @@ from monster import Monster
 from Goal import Goal
 from GoalBlock import GoalBlock
 from Spike import Spike
+from Trampoline import Trampoline
 
 class TutLevel(Level):
     def __init__(self, width, height):
@@ -23,7 +24,9 @@ class TutLevel(Level):
         b =   Block(2, 5,  2, 2, 0, 0,  1, self, 0.5)
         c =  Player(7, 5,  1, 2, 0, 0,  1, self, 0.5)
         d =   Block(2, 8, 2, 2, 0, 5,  2, self, 0.5)  
-        a =   GoalBlock(4, 5, 2, 2, 0, 5,  2, self, 0.5)  
+        a =   GoalBlock(4, 5, 2, 2, 0, 5,  2, self, 0.5) 
+        m = Trampoline(2, 8, 2, 1, 0, 0, 1, self, 0.5)
+        self.add_elem(m)
         e = Spike(23, 8, 29, 1, 0, 0, 100, self, 0.1)
         f = Spike(23, 6, 1, 1, 0, 0, 100, self, 0.1)
         self.add_elem(c)
