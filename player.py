@@ -69,6 +69,7 @@ class Player(Element):
         """
         self.health +=amount
         if self.health <= 0:
+            print("DEATH")
             self.game_won = False
             self.game_over = True
 
