@@ -3,7 +3,7 @@ from Graphics import Graphics
 """
 
 class Element(object):
-    self.exist = True
+    exist = True
     def __init__(self, x_co, y_co, w_co, h_co, vx_co, vy_co, mass, level_co, c_co):
         """
         initialize everything
@@ -12,7 +12,6 @@ class Element(object):
         vx_co, vy_co: speed to 2 coordinates.
         c_co: coefficient of restitution
         """
-        
         self.w = w_co
         self.h = h_co
         self.vx = vx_co
