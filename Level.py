@@ -22,7 +22,6 @@ class Level(object):
             j=i+1
             while j<len(self.elem_list):
                 if self.elem_list[i].touch(self.elem_list[j]):
-                    print("collision")
                     e1=copy(self.elem_list[i])
                     e2=copy(self.elem_list[j])
                     e1.collide(self.elem_list[j])
@@ -39,7 +38,6 @@ class Level(object):
         x=self.get_player().x*self.meter
         y=self.get_player().y*self.meter
         self.frame=[x-self.w/2,y-self.h/2,self.w/2+x,self.h/2+y]
-        pygame.draw.rect(screen, (0, 0, 0), [10,10,30,30], 2)
         for elem in self.elem_list:
             if elem.within_screen(self.frame[0],self.frame[2],self.frame[1],self.frame[3]):
                 elem.draw(screen,elem.left*self.meter-self.frame[0],elem.top*self.meter-self.frame[1],(elem.w)*self.meter,(elem.h)*self.meter)
