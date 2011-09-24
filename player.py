@@ -1,4 +1,4 @@
-from element import *
+from elements import *
 
 class Player(Element):
     run_velocity = 10
