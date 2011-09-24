@@ -19,6 +19,7 @@ class Monster(Terrain):
         super(Monster, self).sim(time)
 
     def collide(self, elem):
+        from player import Player
         super(Monster, self).collide(elem)
         if isinstance(elem, Player):
             direction = self.touch(elem)
