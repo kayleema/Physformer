@@ -29,9 +29,11 @@ class Terrain(Element):
             direction = self.touch(elem)
             if direction == 0 or direction == 3:
                 elem.vx = 0
-            else:
+            elif direction == 2:
                 elem.vy = 0
                 elem.grounded = True
+            else:
+                elem.vy = 0
         if isinstance(elem, Monster):
             direction = self.touch(elem)
             if direction == 0 or direction == 3:
