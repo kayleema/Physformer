@@ -2,7 +2,7 @@ import pygame
 
 class Graphics(object):
     def __init__(self, element):
-        self.color = (0, 255, 0)
+        self.color = (0, 0, 0)
         self.elem = element
     def draw(self, screen, x, y, w, h):
         #print("drawing at: ", x, y, w, h, self.elem)
