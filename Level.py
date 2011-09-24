@@ -31,19 +31,15 @@ class Level(object):
                     e1.move(self.elem_list[j])
                 j+=1
             i+=1                                                    ### Checking touching loop end (with collide)
-        """self.frame[0]=self.get_player().x-self.w/2
-        self.frame[1]=self.get_player().y-self.h/2
-        self.frame[2]=self.get_player().x+self.w/2
-        self.frame[3]=self.get_player().y+self.h/2  """                              
+
         for elem in self.elem_list:
             elem.sim(time)
     
     def draw(self,screen):
+        x=self.get_player().x*self.meter
+        y=self.get_player().y*self.meter
+        self.frame=[x-self.w/2,y-self.h/2,self.w/2+x,self.h/2+y]
         pygame.draw.rect(screen, (0, 0, 0), [10,10,30,30], 2)
         for elem in self.elem_list:
             if elem.within_screen(self.frame[0],self.frame[2],self.frame[1],self.frame[3]):
-                elem.draw(screen,
-                          (elem.left-self.frame[0])*self.meter,
-                          (elem.top -self.frame[1])*self.meter,
-                          (elem.w)*self.meter,
-                          (elem.h)*self.meter)
+                elem.draw(screen,elem.left*self.meter-self.frame[0],elem.top*self.meter-self.frame[1],(elem.w)*self.meter,(elem.h)*self.meter)
