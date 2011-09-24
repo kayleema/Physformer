@@ -1,4 +1,4 @@
-from terrain import Terrain
+from elements import *
 
 class Monster(Terrain):
     self.run_velocity = 5
@@ -19,9 +19,11 @@ class Monster(Terrain):
         super(Monster, self).sim(time)
 
     def collide(self, elem):
+        from block import Block
         from player import Player
-        super(Monster, self).collide(elem)
-        if isinstance(elem, Player):
+        if isinstance(elem, Block):
+            super(Monster, self).collide(elem)
+        elif isinstance(elem, Player):
             direction = self.touch(elem)
             if direction == 4:
                 self.exit = False
