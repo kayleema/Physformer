@@ -38,5 +38,6 @@ class Level:
             elem.sim(time)
     
     def draw(self,screen):
-        for elem in self.elem_list if elem.within_screen(self.frame[0],self.frame[2],self.frame[1],self.frame[3]):
-            elem.draw(screen,(elem.left-self.frame[0])*self.meter,(elem.top-self.frame[1])*self.meter,(self.frame[2]-elem.right)*self.meter,(self.frame[3]-elem.bottom)*self.meter)
+        for elem in self.elem_list:
+            if elem.within_screen(self.frame[0],self.frame[2],self.frame[1],self.frame[3]):
+                elem.draw(screen,(elem.left-self.frame[0])*self.meter,(elem.top-self.frame[1])*self.meter,(self.frame[2]-elem.right)*self.meter,(self.frame[3]-elem.bottom)*self.meter)
