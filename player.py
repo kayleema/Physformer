@@ -1,5 +1,6 @@
 from elements import *
 from terrain import Terrain
+from ImageGraphics import ImageGraphics
 
 class Player(Element):
     run_velocity = 10
@@ -15,6 +16,7 @@ class Player(Element):
         self.movedown = False
         self.health = 100
         self.grounded = False
+        self.graphics = ImageGraphics("img/horn.png")
 
     def sim(self, time):
         #print("Player Position: ", self.x, self.y)

@@ -12,9 +12,9 @@ upkey=pygame.K_UP
 downkey=pygame.K_DOWN
 pickupkey=pygame.K_SPACE
 ###### Key Names
-current_lvl=TutLevel(width,height)
 pygame.init()
 screen=pygame.display.set_mode((width,height)) #the dimensions of the game's screen set to widthxheight
+current_lvl=TutLevel(width,height)
 clock = pygame.time.Clock()
 done=False #done means whether or not the window has been x-ed
 while done==False:
