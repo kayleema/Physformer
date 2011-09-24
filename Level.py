@@ -14,7 +14,7 @@ class Level(object):
         self.elem_list=[]
         self.frame=[0,0,width,height]
         self.g=9.8
-        self.meter=40
+        self.meter=20
     
     def sim(self,time):
         i=0                                                         ### Checking touching loop (with collide)
@@ -32,12 +32,14 @@ class Level(object):
             i+=1                                                    ### Checking touching loop end (with collide)
 
         for elem in self.elem_list:
-            elem.sim(time)
+            if elem.exist:
+                elem.sim(time)
     
     def draw(self,screen):
         x=self.get_player().x*self.meter
         y=self.get_player().y*self.meter
         self.frame=[x-self.w/2,y-self.h/2,self.w/2+x,self.h/2+y]
         for elem in self.elem_list:
+            print(elem.exist)
             if elem.within_screen(self.frame[0],self.frame[2],self.frame[1],self.frame[3]) and elem.exist:
                 elem.draw(screen,elem.left*self.meter-self.frame[0],elem.top*self.meter-self.frame[1],(elem.w)*self.meter,(elem.h)*self.meter)
