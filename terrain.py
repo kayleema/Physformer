@@ -8,6 +8,13 @@ class Terrain(Element):
     def sim(self, time):
         pass
 
+    def move(self, elem):
+        from monster import Monster
+        if isinstance(elem, Monster):
+            pass
+        super(Terrain, self).move(elem)
+        
+
     def collide(self, elem):
         from block import Block
         from player import Player
@@ -20,4 +27,4 @@ class Terrain(Element):
             else:
                 elem.vy = 0
                 elem.grounded = True
-
+ 
