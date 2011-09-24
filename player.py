@@ -69,7 +69,8 @@ class Player(Element):
         """
         self.health +=amount
         if self.health <= 0:
-            self.exit = False
+            self.game_won = False
+            self.game_over = True
 
     
     def move(self, elem):

@@ -16,9 +16,10 @@ class Level(object):
         self.g=14
         self.meter=40
         self.game_over = False
+        self.game_won = True
     
     def sim(self,time):
-        i=0                                                         ### Checking touching loop (with collide)
+        i=0                 ### Checking touching loop (with collide)
         while i<len(self.elem_list):
             j=i+1
             while j<len(self.elem_list):
