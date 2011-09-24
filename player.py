@@ -41,9 +41,16 @@ class Player(Element):
 
     
     def move(self, elem):
+        from monster import Monster
+        if isinstance(elem, Monster) and self.touch(elem) == 2:
+            Monster.exist = False
+
         if not isinstance(elem, Terrain):
             super(Player, self).move(elem)
 
     def collide(self, elem):
+        from monster import Monster
+        if isinstance(elem, Monster):
+            pass
         if not isinstance(elem, Terrain):
             super(Player, self).collide(elem)

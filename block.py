@@ -17,8 +17,11 @@ class Block(Element):
     def collide(self, elem):
         from terrain import Terrain
         from player import Player
+        from monster import Monster
+        if isinstance(elem, Monster):
+            pass
         direction = self.touch(elem)
-        if (isinstance(elem, Player) and direction != 2) or isinstance(elem, Terrain):
+        if (isinstance(elem, Player) and direction != 2) or isinstance(elem, Terrain) or isinstance(elem, Monster):
             return
         super(Block, self).collide(elem)
 

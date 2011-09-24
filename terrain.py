@@ -18,6 +18,9 @@ class Terrain(Element):
     def collide(self, elem):
         from block import Block
         from player import Player
+        from monster import Monster
+        if isinstance(elem, Monster):
+            pass
         if isinstance(elem, Block):
             super(Terrain, self).collide(elem)
         elif isinstance(elem, Player):
