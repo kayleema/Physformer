@@ -1,5 +1,6 @@
 import pygame
 from copy import copy
+from elements import Element
 class Level:
 	def add_elem(self,elem):
 		self.elem_list+=[elem]
