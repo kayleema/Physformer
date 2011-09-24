@@ -2,7 +2,7 @@ from Graphics import Graphics
 """This file has element class which contains everything you can see
 """
 
-class Element():
+class Element:
     def __init__(self, x_co, y_co, w_co, h_co, vx_co, vy_co, mass, level_co, c_co):
         """
         initialize everything
@@ -11,22 +11,18 @@ class Element():
         vx_co, vy_co: speed to 2 coordinates.
         c_co: coefficient of restitution
         """
-        self.x = x_co
-        self.y = y_co
+
         self.w = w_co
         self.h = h_co
         self.vx = vx_co
         self.vy = vy_co
         self.mylevel = level_co
-        self.left = x_co - w_co/2
-        self.right = x_co + w_co/2
-        self.up = y_co - h_co/2
-        self.down = y_co + h_co/2
         self.graphics = Graphics(self)
         self.m = mass
         self.c = c_co
+        self.update(x_co, y_co)
 
-    def update(x1, y1):
+    def update(self, x1, y1):
         """
         update the position of element
         """
@@ -62,7 +58,7 @@ class Element():
     def get_down(self):
         return self.down
 
-    def in_inter(x, a, b):
+    def in_inter(self, x, a, b):
         """
         return true when x is inside the interval [a, b]
         """
@@ -70,50 +66,77 @@ class Element():
         if x >= a and x <= b:
             return True
         return False
-    
-    
-    
-    
+
 
     def touch(self, elem):
         """
         return true if the two elements are overlapped by the other
         """
-        other_l = elem.get_left()
-        otehr_r = elem.get_right()
-        other_u = elem.get_up()
-        other_d = elem.get_down()
-        # horizontal overlap
-        horiz = in_inter(self.left, other_l, otehr_r) or in_inter(other_l, self.left, self.right) or in_inter(self.right, other_l, other_r) or in_inter(other_r, self.left, self.right)
-        # vertical overlap
-        vert = in_inter(self.up, other_d, other_u) or in_inter(self.down, other_d, other_u) or in_inter(other_d, self.down, self.up) or (other_u, self.down, self.up)
-        if horiz and vert:
-            return True
-        return False
+        gapright =  self.right - elem.left
+        gapleft =   elem.right - self.left
+        gaptop =    self.top - other.bottom
+        gapbottom = elem.top - self.bottom
+        if gapleft > 0 and gapright > 0 and gaptop > 0 and gapbottom > 0:
+            if min(gapleft, gapright) < min(gaptop, gapbottom):
+                #collision horizontal
+                if gapleft < gapright:
+                    return 3
+                else:
+                    return 1
+            else:
+                #collision vertical
+                if gaptop < gapbottom:
+                    return 2
+                else:
+                    return 4
+        else:
+            return 0
+    
+    def touch_ammount(self, elem):
+        gapright =  self.right - elem.left
+        gapleft =   elem.right - self.left
+        gaptop =    self.top - other.bottom
+        gapbottom = elem.top - self.bottom
+        direction =  self.touch(elem)
+        if direction == 0:
+            return 0
+        elif direction == 1:
+            return gapright
+        elif direction == 2:
+            return gaptop
+        elif direction == 3:
+            return gapleft
+        elif direction == 4:
+            return gapbottom
+        else:
+            assert False, "invalid direction"
 
     def move(self, elem):
         """
           move something out of another element under the presumption that those two elements are overlapped
           return nothing
         """
-      
-        if self.vx > 0:
-            x1 = self.right + elem.w/2
-        elif self.vx < 0:
-            x1 = self.left - elem.w/2
+        if isinstance(elem, Terrain):
+            return
+        direction = self.touch(elem)
+        ammount = self.touch_ammount(elem)
+        if direction == 0:
+            return
+        elif direction == 1:
+            elem.x += ammount
+        elif direction == 2:
+            elem.y -= ammount
+        elif direction == 3:
+            elem.x -= ammount
+        elif direction == 4:
+            elem.y += ammount
+        else:
+            assert False, "invalid direction"
 
-        if self.vy > 0:
-            y1 = self.up - elem.h/2
-        elif self.vy < 0:
-            y1 = self.down + elem.h/2
+        elem.update(elem.x, elem.y)
+            
 
-        elem.update(x1, y1)
-            
-            
-            
-        
-
-    def phy_for(va, vb, ma, mb, coef):
+    def phy_for(self, va, vb, ma, mb, coef):
         """
         take in objects a and b's speed and mass and return the speed for object b
         coef is the coefficient of restitution which is the average of the c of two elements
@@ -127,23 +150,26 @@ class Element():
         """
         modify the other element's speed; return nothing
         """
+        if isinstance(elem, Terrain):
+            return
+        direction = self.touch(elem)
         coef = (self.c + elem.c)/2
-        elem.vx = phy_for(self.vx, elem.vx, self.ma, self.mb, coef)
-        elem.vy = phy_for(self.vy, elem.vy, self.ma, self.mb, coef)d
-            
-        
-        
-        
+        if direction == 1 or direction == 3:
+            elem.vx = self.phy_for(self.vx, elem.vx, self.ma, self.mb, coef)
+        elif direction == 2 or direction == 4:
+            elem.vy = self.phy_for(self.vy, elem.vy, self.ma, self.mb, coef)d
+        else:
+            return
 
     def sim(self, time):
         """
         simulate the element move in the certain direction for certain time.
         REMEMBER TO CHECK!
         """
-        self.vy += mylevel.g * time
+        self.vy += self.mylevel.g * time
         x1 = self.x + time * self.vx
         y1 = self.y + time * self.vy
-        update(x1, y1)
+        self.update(x1, y1)
         
         
 
@@ -153,23 +179,14 @@ class Element():
         scr_left: the left bound of the screen
         scr_right: the right bound of the screen
         """
-        if in_inter(self.left, scr_left, scr_right) or in_inter(self.right, scr_left, scr_right) or in_inter(self.up, scr_bot, scr_top) or in_inter(self.down, scr_bot, scr_top):
-            return True
-        return False
+#TODO:  Fixme
+        return True
     
 
-    def draw(screen, x, y, w, h):
+    def draw(self, screen, x, y, w, h):
         """
         convey the arguments x and y to graphics function to draw things.
         """
-        graphics.draw(screen, x, y, w, h)
-
-    
-    
-    
-    
-    
-
-    
+        self.graphics.draw(screen, x, y, w, h)
 
     

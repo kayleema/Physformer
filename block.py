@@ -14,6 +14,8 @@ class Block(Element):
         self.health = 100
 
 
-    def collideBlock():
+    def collide(self, elem):
+        if isinstance(elem, Player):
+            return
         super(Block, self).collide(elem)
 

@@ -13,27 +13,26 @@ class Player(Element):
         self.moveup = False
         self.movedown = False
         self.health = 100
+        self.grounded = False
 
     def sim(self, time):
         if self.moveleft:
-            self.vx -= run_velocity
-        if self.moveright:
-            self.vx += run_velocity
-        if self.moveup:
-            self.vy -= jump_velocity
-        if self.movedown:
-            self.vx += jump_velocity
+            self.vx = -run_velocity
+        elif self.moveright:
+            self.vx =  run_velocity
+        else:
+            self.vx = 0
+
+        if self.moveup and grounded:
+            self.vy = -jump_velocity
+            grounded = False
+        
         super(Player, self).sim(time)
 
-    def ch_health(amount):
+    def ch_health(self, amount):
         """
         change the health with certain amount in case of damage or curation
         """
         self.health +=amount
 
     
-        
-        
-        
-        
-        
