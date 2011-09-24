@@ -15,9 +15,9 @@ class TutLevel(Level):
         boxtop = Terrain(20, -19, 40, 2, 0, 0,100, self, 0.5)
         boxleft= Terrain(-1,-5,2,30,0,0,100,self,0.5)
         boxbottom= Terrain(20,9,40,2,0,0,100,self,0.5)
-        boxright= Terrain(41,-5,2,30,0,0,100,self,0.5)
+        boxright= Terrain(47,-5,2,30,0,0,100,self,0.5)
 
-        goal= Goal(38,5,1,5,0,0,100,self,0.5)
+        goal= Goal(44,5,1,5,0,0,100,self,0.5)
         
         
         b =   Block(2, 5,  2, 2, 0, 0,  1, self, 0.5)
