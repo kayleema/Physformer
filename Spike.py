@@ -11,6 +11,6 @@ class Spike(Terrain):
      def collide(self, elem):
          super(Spike, self).collide(elem)
          if isinstance(elem, Player):
-             elem.ch_health(-1)
+             elem.ch_health(-33)
              pass##add damage here
      

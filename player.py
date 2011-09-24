@@ -19,9 +19,12 @@ class Player(Element):
         self.grounded = False
         self.graphics = ImageGraphics("img/ninja.png")
         self.picked_up = False
-
+        self.recovery = 0
 
     def sim(self, time):
+        if self.recovery >= 0:
+            self.recovery -= time
+
         #print("Player Position: ", self.x, self.y)
         if self.moveleft:
             self.vx = -self.run_velocity
@@ -67,7 +70,10 @@ class Player(Element):
         """
         change the health with certain amount in case of damage or curation
         """
+        if self.recovery > 0:
+            return
         self.health +=amount
+        self.recovery = 1
         if self.health <= 0:
             print("DEATH")
             self.mylevel.game_won = False
