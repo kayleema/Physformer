@@ -52,9 +52,8 @@ class Element(object):
         gapleft =   elem.right - self.left
         gaptop =    -self.top + elem.bottom
         gapbottom = -elem.top + self.bottom
-        print(gapleft, gapright, gaptop, gapbottom)
+        #print(gapleft, gapright, gaptop, gapbottom)
         if gapleft > 0 and gapright > 0 and gaptop > 0 and gapbottom > 0:
-            print("collision")
             if min(gapleft, gapright) < min(gaptop, gapbottom):
                 #collision horizontal
                 if gapleft < gapright:
@@ -73,8 +72,8 @@ class Element(object):
     def touch_ammount(self, elem):
         gapright =  self.right - elem.left
         gapleft =   elem.right - self.left
-        gaptop =    self.top - elem.bottom
-        gapbottom = elem.top - self.bottom
+        gaptop =    -self.top + elem.bottom
+        gapbottom = -elem.top + self.bottom
         direction =  self.touch(elem)
         if direction == 0:
             return 0
@@ -94,8 +93,6 @@ class Element(object):
           move something out of another element under the presumption that those two elements are overlapped
           return nothing
         """
-        if isinstance(elem, Terrain):
-            return
         direction = self.touch(elem)
         ammount = self.touch_ammount(elem)
         if direction == 0:
@@ -128,16 +125,16 @@ class Element(object):
         """
         modify the other element's speed; return nothing
         """
-        if isinstance(elem, Terrain):
-            return
         direction = self.touch(elem)
         coef = (self.c + elem.c)/2
         if direction == 1 or direction == 3:
-            elem.vx = self.phy_for(self.vx, elem.vx, self.ma, self.mb, coef)
+            elem.vx = self.phy_for(self.vx, elem.vx, self.m, elem.m, coef)
         elif direction == 2 or direction == 4:
-            elem.vy = self.phy_for(self.vy, elem.vy, self.ma, self.mb, coef)
+            elem.vy = self.phy_for(self.vy, elem.vy, self.m, elem.m, coef)
         else:
             return
+        """
+        elem.vx = elem.vy = 0"""
 
     def sim(self, time):
         """

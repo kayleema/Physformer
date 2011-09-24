@@ -9,6 +9,8 @@ class Terrain(Element):
         pass
 
     def collide(self, elem):
+        from block import Block
+        from player import Player
         if isinstance(elem, Block):
             super(Terrain, self).collide(elem)
         elif isinstance(elem, Player):
@@ -18,3 +20,4 @@ class Terrain(Element):
             else:
                 elem.vy = 0
                 elem.grounded = True
+

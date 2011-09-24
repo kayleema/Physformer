@@ -1,4 +1,5 @@
 from elements import *
+from terrain import Terrain
 
 class Player(Element):
     run_velocity = 10
@@ -37,3 +38,10 @@ class Player(Element):
         self.health +=amount
 
     
+    def move(self, elem):
+        if not isinstance(elem, Terrain):
+            super(Player, self).move(elem)
+
+    def collide(self, elem):
+        if not isinstance(elem, Terrain):
+            super(Player, self).collide(elem)
