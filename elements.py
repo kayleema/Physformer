@@ -52,15 +52,12 @@ class Element(object):
         gapleft =   elem.right - self.left
         gaptop =    -self.top + elem.bottom
         gapbottom = -elem.top + self.bottom
-        #print(gapleft, gapright, gaptop, gapbottom)
         if gapleft > 0 and gapright > 0 and gaptop > 0 and gapbottom > 0:
-            #print()
             if min(gapleft, gapright) < min(gaptop, gapbottom):
                 #collision horizontal
                 if gapleft < gapright:
                     return 3
                 else:
-                    print("hi")
                     return 1
             else:
                 #collision vertical
