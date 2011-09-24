@@ -30,6 +30,8 @@ while done==False:
         current_lvl.sim(1/clock.get_fps())
     for event in events:
         if event.type==pygame.KEYDOWN:
+            if event.key==pickupkey:
+                current_lvl=TutLevel(width,height)
             if event.key == leftkey:
                 current_lvl.get_player().moveleft=True
             if event.key == rightkey:
