@@ -70,7 +70,8 @@ while done==False:
                     option=3
                 if option<1:
                     option=1
-                if event.key == pygame.K_RETURN:
+                if event.key == rightkey:
+                    print("starting")
                     if option==1:
                         current_lvl=TutLevel.TutLevel(width,height)
                     if option==2:

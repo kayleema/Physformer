@@ -13,8 +13,9 @@ class Level(object):
         self.h=height
         self.elem_list=[]
         self.frame=[0,0,width,height]
-        self.g=9.8
+        self.g=14
         self.meter=40
+        self.game_over = False
     
     def sim(self,time):
         i=0                                                         ### Checking touching loop (with collide)
@@ -45,4 +46,4 @@ class Level(object):
                 elem.draw(screen,elem.left*self.meter-self.frame[0],elem.top*self.meter-self.frame[1],(elem.w)*self.meter,(elem.h)*self.meter)
         
         screen.fill((128,128,128), [10,10,200,20])
-        screen.fill((255, 0, 0), [15, 15, 190*self.get_player().health/100, 10])
+        screen.fill((200, 0, 0), [15, 15, 190*self.get_player().health/100, 10])
