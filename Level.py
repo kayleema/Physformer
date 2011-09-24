@@ -43,3 +43,6 @@ class Level(object):
             #print(elem.exist)
             if elem.within_screen(self.frame[0],self.frame[2],self.frame[1],self.frame[3]) and elem.exist:
                 elem.draw(screen,elem.left*self.meter-self.frame[0],elem.top*self.meter-self.frame[1],(elem.w)*self.meter,(elem.h)*self.meter)
+        
+        screen.fill((128,128,128), [10,10,200,20])
+        screen.fill((255, 0, 0), [15, 15, 190*self.get_player().health/100, 10])
