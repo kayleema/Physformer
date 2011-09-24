@@ -21,15 +21,15 @@ class TutLevel(Level):
         goal= Goal(44,5,1,5,0,0,100,self,0.5)
         
         
-        b =   Block(2, 5,  2, 2, 0, 0,  1, self, 0.5)
+        b =   Block(2, 11,  2, 2, 0, 0,  1, self, 0.5)
         c =  Player(7, 5,  1, 2, 0, 0,  1, self, 0.5)
-        d =   Block(2, 8, 2, 2, 0, 5,  2, self, 0.5)  
+        d =   Block(2, 14, 2, 2, 0, 5,  2, self, 0.5)  
         a =   GoalBlock(4, 5, 2, 2, 0, 5,  2, self, 0.5) 
         m = Trampoline(2, 8, 2, 1, 0, 0, 1, self, 0.5)
-        self.add_elem(m)
         e = Spike(23, 8, 29, 1, 0, 0, 100, self, 0.1)
         f = Spike(23, 6, 1, 1, 0, 0, 100, self, 0.1)
         self.add_elem(c)
+        self.add_elem(m)
         self.add_elem(b)
         self.add_elem(a)
         self.add_elem(d)
