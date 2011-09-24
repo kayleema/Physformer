@@ -6,4 +6,4 @@ class Trampoline(Terrain):
         super(Trampoline, self).__init__(x_co, y_co, w_co, h_co, vx_co, vy_co, mass, world_name, c_co)
         self.graphics = TiledGraphics("img/tramp.png", 40, 40)
     def collide(self, elem):
-        elem.vy = -23
+        elem.vy = -20
