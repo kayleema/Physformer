@@ -21,6 +21,7 @@ while done==False:
     for event in events:                       ##### DON"T CARE ABOUT THIS KEEGAN
         if event.type==quitkey:                #######
             done=True                          #####
+    screen.fill((225,225,225))
     current_lvl.draw(screen)
     if clock.get_fps() != 0:
         current_lvl.sim(1/clock.get_fps())
@@ -46,7 +47,7 @@ while done==False:
         
     clock.tick()
     
-    screen.fill((225,225,225))
+
     pygame.display.flip()
     
 pygame.quit()
