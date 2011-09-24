@@ -22,7 +22,8 @@ while done==False:
         if event.type==quitkey:                #######
             done=True                          #####
     current_lvl.draw(screen)
-    current_lvl.sim(1/pygame.time.Clock.get_fps())
+    if clock.get_fps() != 0:
+        current_lvl.sim(1/clock.get_fps())
     for event in events:
         if event.type==pygame.KEYDOWN:
             if event.key == leftkey:
