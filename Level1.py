@@ -8,10 +8,10 @@ class TutLevel(Level):
     def __init__(self, width, height):
         super(TutLevel, self).__init__(width, height)
         ##initialize blocks##
-        boxtop = Terrain(1, -5, 40, 1, 0, 0,100, self, 0.5)
-        boxright= Terrain(20,4,1,13,0,0,100,self,0.5)
-        boxbottom= Terrain(1,10,40,1,0,0,100,self,0.5)
-        boxleft= Terrain(-18,4,1,13,0,0,100,self,0.5)
+        boxtop = Terrain(20, 1, 40, 2, 0, 0,100, self, 0.5)
+        boxleft= Terrain(-1,5,2,10,0,0,100,self,0.5)
+        boxbottom= Terrain(20,9,40,2,0,0,100,self,0.5)
+        boxright= Terrain(41,5,2,10,0,0,100,self,0.5)
         b =   Block(10, 5,  2, 2, 0, 0,  1, self, 0.5)
         c =  Player(15, 5,  1, 2, 0, 0,  1, self, 0.5)
         d =   Block(7, 5, 2, 2, 0, 5,  2, self, 0.5)  
