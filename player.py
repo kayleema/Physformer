@@ -30,6 +30,7 @@ class Player(Element):
         if self.moveup and self.grounded:
             self.vy = -self.jump_velocity
             self.grounded = False
+        self.grounded = False
         
         super(Player, self).sim(time)
 
