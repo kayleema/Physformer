@@ -19,7 +19,7 @@ class Monster(Element):
         if abs(self.x_ori - self.x) > self.x_lim:
             self.vx = -self.vx
         self.vy = 0
-        print(self.exist) # Test
+        #print(self.exist) # Test
         super(Monster, self).sim(time)
 
     def move(self, elem):

@@ -1,6 +1,6 @@
 import pygame
 import os
-from LevelReal import TutLevel
+from Level1 import TutLevel
 os.environ['SDL_VIDEO_CENTERED'] = '1'
 height=600 #height of the game window's screen
 width=800 #width

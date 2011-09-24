@@ -1,6 +1,7 @@
 from elements import *
 from terrain import Terrain
 from ImageGraphics import ImageGraphics
+from block import Block
 
 class Player(Element):
     run_velocity = 10
@@ -17,6 +18,7 @@ class Player(Element):
         self.health = 100
         self.grounded = False
         self.graphics = ImageGraphics("img/ninja.png")
+        self.picked_up = False
 
     def sim(self, time):
         #print("Player Position: ", self.x, self.y)
@@ -32,6 +34,32 @@ class Player(Element):
             self.grounded = False
         self.grounded = False
         
+        if self.movedown == True:
+            if self.picked_up != False:
+                self.picked_up.vx = self.vx
+                self.picked_up.vy = self.vy
+                self.picked_up = False
+            else:
+                self.movedown = False
+                closest = 0
+                closest_dist = 99999
+                for element in self.mylevel.elem_list:
+                    if isinstance(element, Block):
+                        dist = (element.x-self.x)**2+(element.y-self.y)**2
+                        if(dist < closest_dist):
+                            closest_dist = dist
+                            closest = element
+                        if closest_dist < 5:
+                            print(closest)
+                            closest.x = self.x
+                            closest.y = self.top - closest.h
+                            closest.update(closest.x, closest.y)
+                            self.picked_up = closest
+        if self.picked_up != False:
+            self.picked_up.x = self.x
+            self.picked_up.y = self.top - self.picked_up.h
+            self.picked_up.update(self.picked_up.x, self.picked_up.y)
+
         super(Player, self).sim(time)
 
     def ch_health(self, amount):
@@ -57,3 +85,5 @@ class Player(Element):
             pass
         if not isinstance(elem, Terrain):
             super(Player, self).collide(elem)
+
+    
