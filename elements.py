@@ -30,34 +30,10 @@ class Element(object):
         self.y = y1
         self.left = self.x - self.w/2
         self.right = self.x + self.w/2
-        self.up = self.y - self.h/2
-        self.down = self.y + self.h/2
+        self.top = self.y - self.h/2
+        self.bottom = self.y + self.h/2
         
         
-    """
-    get everything you want
-    """
-    def get_x(self):
-        return self.x
-    def get_y(self):
-        return self.y
-    def get_w(self):
-        return self.w
-    def get_h(self):
-        return self.h
-    def get_vx(self):
-        return self.vx
-    def get_vy(self):
-        return self.vy
-    def get_left(self):
-        return self.left
-    def get_right(self):
-        return self.right
-    def get_up(self):
-        return self.up
-    def get_down(self):
-        return self.down
-
     def in_inter(self, x, a, b):
         """
         return true when x is inside the interval [a, b]
