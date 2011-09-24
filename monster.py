@@ -1,8 +1,8 @@
 from terrain import Terrain
 
 class Monster(Terrain):
-    run_velocity = 5
-    jump_velocity = 5
+    self.run_velocity = 5
+    self.jump_velocity = 5
     
 
     def __init__(self, x_co, y_co, w_co, h_co, vx_co, vy_co, mass, world_name, c_co, dx, dy):
