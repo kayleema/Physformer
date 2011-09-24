@@ -22,6 +22,7 @@ class Level(object):
             j=i+1
             while j<len(self.elem_list):
                 if self.elem_list[i].touch(self.elem_list[j]):
+                    print("collision")
                     e1=copy(self.elem_list[i])
                     e2=copy(self.elem_list[j])
                     e1.collide(self.elem_list[j])

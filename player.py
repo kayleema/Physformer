@@ -16,7 +16,7 @@ class Player(Element):
         self.grounded = False
 
     def sim(self, time):
-        print("Player Position: ", self.x, self.y)
+        #print("Player Position: ", self.x, self.y)
         if self.moveleft:
             self.vx = -self.run_velocity
         elif self.moveright:

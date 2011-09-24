@@ -50,9 +50,11 @@ class Element(object):
         """
         gapright =  self.right - elem.left
         gapleft =   elem.right - self.left
-        gaptop =    self.top - elem.bottom
-        gapbottom = elem.top - self.bottom
+        gaptop =    -self.top + elem.bottom
+        gapbottom = -elem.top + self.bottom
+        print(gapleft, gapright, gaptop, gapbottom)
         if gapleft > 0 and gapright > 0 and gaptop > 0 and gapbottom > 0:
+            print("collision")
             if min(gapleft, gapright) < min(gaptop, gapbottom):
                 #collision horizontal
                 if gapleft < gapright:

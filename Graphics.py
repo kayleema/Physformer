@@ -5,7 +5,7 @@ class Graphics(object):
         self.color = (0, 255, 0)
         self.elem = element
     def draw(self, screen, x, y, w, h):
-        print("drawing at: ", x, y, w, h, self.elem)
+        #print("drawing at: ", x, y, w, h, self.elem)
         """draws a rectangle representation of the element defined in the
         constructor
         """
