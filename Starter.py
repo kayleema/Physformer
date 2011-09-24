@@ -46,7 +46,7 @@ while done==False:
         
     clock.tick()
     
-    draw_background(screen)
+    screen.fill((225,225,225))
     pygame.display.flip()
     
 pygame.quit()
