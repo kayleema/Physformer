@@ -29,36 +29,44 @@ while done==False:
             done=True                          #####
     screen.fill((225,225,225))
     if levelselected:
-        screen.blit(background, [0,0])
-        current_lvl.draw(screen)
-        if clock.get_fps() != 0:
-            current_lvl.sim(1/clock.get_fps())
-        for event in events:
-            if event.type==pygame.KEYDOWN:
-                if event.key==pickupkey:
-                    if option==1:
-                        current_lvl=TutLevel.TutLevel(width,height)
-                    if option==2:
-                        current_lvl=Level1.TutLevel(width,height)
-                    if option==3:
-                        current_lvl=LevelReal.TutLevel(width,height)
-                if event.key == leftkey:
-                    current_lvl.get_player().moveleft=True
-                if event.key == rightkey:
-                    current_lvl.get_player().moveright=True
-                if event.key == upkey:
-                    current_lvl.get_player().moveup=True
-                if event.key == downkey:
-                    current_lvl.get_player().movedown=True
-            if event.type==pygame.KEYUP:
-                if event.key == leftkey:
-                    current_lvl.get_player().moveleft=False
-                if event.key == rightkey:
-                    current_lvl.get_player().moveright=False
-                if event.key == upkey:
-                    current_lvl.get_player().moveup=False
-                if event.key == downkey:
-                    current_lvl.get_player().movedown=False
+        if current_lvl.game_over:
+            font=pygame.font.Font(None, 40)
+            text = font.render("EFF YES",True,(0,0,0))
+            screen.blit(text,[width/2,height/2])
+            for event in events:
+                if event.type==pygame.KEYDOWN:
+                    levelselected=False
+        else:
+            screen.blit(background, [0,0])
+            current_lvl.draw(screen)
+            if clock.get_fps() != 0:
+                current_lvl.sim(1/clock.get_fps())
+            for event in events:
+                if event.type==pygame.KEYDOWN:
+                    if event.key==pickupkey:
+                        if option==1:
+                            current_lvl=TutLevel.TutLevel(width,height)
+                        if option==2:
+                            current_lvl=Level1.TutLevel(width,height)
+                        if option==3:
+                            current_lvl=LevelReal.TutLevel(width,height)
+                    if event.key == leftkey:
+                        current_lvl.get_player().moveleft=True
+                    if event.key == rightkey:
+                        current_lvl.get_player().moveright=True
+                    if event.key == upkey:
+                        current_lvl.get_player().moveup=True
+                    if event.key == downkey:
+                        current_lvl.get_player().movedown=True
+                if event.type==pygame.KEYUP:
+                    if event.key == leftkey:
+                        current_lvl.get_player().moveleft=False
+                    if event.key == rightkey:
+                        current_lvl.get_player().moveright=False
+                    if event.key == upkey:
+                        current_lvl.get_player().moveup=False
+                    if event.key == downkey:
+                        current_lvl.get_player().movedown=False
     else:
         for event in events:
             if event.type==pygame.KEYDOWN:
