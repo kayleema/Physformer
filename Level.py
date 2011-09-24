@@ -14,7 +14,7 @@ class Level(object):
         self.elem_list=[]
         self.frame=[0,0,width,height]
         self.g=9.8
-        self.meter=20
+        self.meter=40
     
     def sim(self,time):
         i=0                                                         ### Checking touching loop (with collide)
