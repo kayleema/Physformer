@@ -17,13 +17,17 @@ class Block(Element):
     def collide(self, elem):
         from terrain import Terrain
         from player import Player
-        if isinstance(elem, Player) or isinstance(elem, Terrain):
+        direction = self.touch(elem)
+        if (isinstance(elem, Player) and direction != 2) or isinstance(elem, Terrain):
             return
         super(Block, self).collide(elem)
 
     def move(self, elem):
         from terrain import Terrain
         from player import Player
-        if isinstance(elem, Player) or isinstance(elem, Terrain):
+        direction = self.touch(elem)
+        if (isinstance(elem, Player) and direction != 2) or isinstance(elem, Terrain):
             return
+        if isinstance(elem, Player):
+            elem.grounded = True
         super(Block, self).move(elem)
