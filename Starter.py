@@ -30,6 +30,7 @@ while done==False:
     screen.fill((225,225,225))
     if levelselected:
         if current_lvl.game_over:
+            screen.blit(background, [0,0])
             if current_lvl.game_won:
                 font=pygame.font.Font(None, 50)
                 text = font.render("EFF YEZ",True,(0,0,0))
