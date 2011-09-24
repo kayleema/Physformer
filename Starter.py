@@ -79,6 +79,7 @@ while done==False:
                     if event.key == downkey:
                         current_lvl.get_player().movedown=False
     else:
+        screen.blit(background, [0,0])
         for event in events:
             if event.type==pygame.KEYDOWN:
                 if event.key == upkey:
