@@ -157,7 +157,7 @@ class Element:
         if direction == 1 or direction == 3:
             elem.vx = self.phy_for(self.vx, elem.vx, self.ma, self.mb, coef)
         elif direction == 2 or direction == 4:
-            elem.vy = self.phy_for(self.vy, elem.vy, self.ma, self.mb, coef)d
+            elem.vy = self.phy_for(self.vy, elem.vy, self.ma, self.mb, coef)
         else:
             return
 
