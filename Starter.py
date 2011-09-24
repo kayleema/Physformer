@@ -1,8 +1,8 @@
 import pygame
 import os
 from TutLevel import TutLevel
-height=900 #height of the game window's screen
-width=1800 #width
+height=600 #height of the game window's screen
+width=800 #width
 ####### Key Names
 quitkey=pygame.QUIT
 leftkey=pygame.K_LEFT
