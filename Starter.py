@@ -1,6 +1,5 @@
 import pygame
 import os
-import math
 from TutLevel import TutLevel
 height=900 #height of the game window's screen
 width=1800 #width
@@ -23,8 +22,8 @@ while done==False:
     for event in events:                       ##### DON"T CARE ABOUT THIS KEEGAN
 		if event.type==quitkey:                #######
 			done=True                          #####
-	current_lvl.sim(1/Clock.get_fps())
 	current_lvl.draw(screen)
+	current_lvl.sim(1/Clock.get_fps())
 	for event in events:
 		if event.type==pygame.KEYDOWN
 			if event.key == leftkey:
