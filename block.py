@@ -17,13 +17,13 @@ class Block(Element):
     def collide(self, elem):
         from terrain import Terrain
         from player import Player
-        if isinstance(elem, Player) or isinstance(elem, Terrain):
+        if """isinstance(elem, Player) or""" isinstance(elem, Terrain):
             return
         super(Block, self).collide(elem)
 
     def move(self, elem):
         from terrain import Terrain
         from player import Player
-        if isinstance(elem, Player) or isinstance(elem, Terrain):
+        if """isinstance(elem, Player) or""" isinstance(elem, Terrain):
             return
         super(Block, self).move(elem)
