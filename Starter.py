@@ -13,7 +13,6 @@ pickupkey=pygame.K_SPACE
 ###### Key Names
 current_lvl=TutLevel(width,height)
 pygame.init()
-p1=elems[0]
 screen=pygame.display.set_mode((width,height)) #the dimensions of the game's screen set to widthxheight
 clock = pygame.time.Clock()
 done=False #done means whether or not the window has been x-ed
