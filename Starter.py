@@ -27,22 +27,22 @@ while done==False:
     for event in events:
         if event.type==pygame.KEYDOWN:
             if event.key == leftkey:
-                current_lvl.player.moveleft=True
+                current_lvl.get_player().moveleft=True
             if event.key == rightkey:
-                current_lvl.player.moveright=True
+                current_lvl.get_player().moveright=True
             if event.key == upkey:
-                current_lvl.player.moveup=True
+                current_lvl.get_player().moveup=True
             if event.key == downkey:
-                current_lvl.player.movedown=True
+                current_lvl.get_player().movedown=True
         if event.type==pygame.KEYUP:
             if event.key == leftkey:
-                current_lvl.player.moveleft=False
+                current_lvl.get_player().moveleft=False
             if event.key == rightkey:
-                current_lvl.player.moveright=False
+                current_lvl.get_player().moveright=False
             if event.key == upkey:
-                current_lvl.player.moveup=False
+                current_lvl.get_player().moveup=False
             if event.key == downkey:
-                current_lvl.player.movedown=False
+                current_lvl.get_player().movedown=False
         
     clock.tick()
     
