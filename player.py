@@ -16,7 +16,7 @@ class Player(Element):
         self.movedown = False
         self.health = 100
         self.grounded = False
-        self.graphics = ImageGraphics("img/charac.png")
+        self.graphics = ImageGraphics("img/ninja.png")
 
     def sim(self, time):
         #print("Player Position: ", self.x, self.y)
