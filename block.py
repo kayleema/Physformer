@@ -26,7 +26,7 @@ class Block(Element):
         from terrain import Terrain
         from player import Player
         direction = self.touch(elem)
-        if (isinstance(elem, Player) and direction != 2) or isinstance(elem, Terrain):
+        if isinstance(elem, Terrain):
             return
         if isinstance(elem, Player):
             elem.grounded = True
