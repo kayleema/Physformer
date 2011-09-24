@@ -15,7 +15,7 @@ class Monster(Terrain):
 
     def sim(self, time):
         if abs(self.x_ori - self.x) > self.x_lim:
-            vx = -vx
+            self.vx = -self.vx
         super(Monster, self).sim(time)
 
     def collide(self, elem):
