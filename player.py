@@ -20,6 +20,7 @@ class Player(Element):
         self.graphics = ImageGraphics("img/ninja.png")
         self.picked_up = False
 
+
     def sim(self, time):
         #print("Player Position: ", self.x, self.y)
         if self.moveleft:

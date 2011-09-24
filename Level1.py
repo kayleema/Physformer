@@ -5,6 +5,7 @@ from terrain import Terrain
 from Level import Level
 from monster import Monster
 from Goal import Goal
+from GoalBlock import GoalBlock
 
 class TutLevel(Level):
     def __init__(self, width, height):
@@ -22,7 +23,7 @@ class TutLevel(Level):
         b =   Block(20, 5,  2, 2, 0, 0,  1, self, 0.5)
         c =  Player(15, 5,  1, 2, 0, 0,  1, self, 0.5)
         d =   Block(27, 5, 2, 2, 0, 5,  2, self, 0.5)  
-        a =   Block(17, 5, 2, 2, 0, 5,  2, self, 0.5)  
+        a =   GoalBlock(17, 5, 2, 2, 0, 5,  2, self, 0.5)  
         self.add_elem(c)
         self.add_elem(b)
         self.add_elem(a)
