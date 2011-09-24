@@ -8,4 +8,4 @@ class Graphics(object):
         """draws a rectangle representation of the element defined in the
         constructor
         """
-        pygame.draw.rect(screen,color,[x,y,w,h],2)
+        pygame.draw.rect(screen,self.color,[x,y,w,h],2)
