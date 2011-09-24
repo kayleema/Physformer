@@ -21,7 +21,7 @@ class Element(object):
         self.m = mass
         self.c = c_co
         self.update(x_co, y_co)
-        self.af = 0.25
+        self.af = 0.5
 
     def set_exist(self, x):
         self.exist = x
