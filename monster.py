@@ -15,17 +15,19 @@ class Monster(Element):
         self.y_ori = self.y
 
     def sim(self, time):
+        self.vx = self.vx/abs(self.vx) * self.run_velocity
         if abs(self.x_ori - self.x) > self.x_lim:
             self.vx = -self.vx
         self.vy = 0
-        print(self.exist)
+        print(self.exist) # Test
         super(Monster, self).sim(time)
 
     def move(self, elem):
         from terrain import Terrain
         if isinstance(elem, Terrain):
             pass
-        super(Monster, self).move(elem)
+        else:
+            super(Monster, self).move(elem)
 
     def collide(self, elem):
         from block import Block
