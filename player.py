@@ -23,7 +23,7 @@ class Player(Element):
             self.vy -= jump_velocity
         if self.movedown:
             self.vx += jump_velocity
-        super(player, self).sim(time)
+        super(Player, self).sim(time)
 
     def ch_health(amount):
         """

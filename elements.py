@@ -95,14 +95,21 @@ class Element():
     def move(self, elem):
         """
           move something out of another element under the presumption that those two elements are overlapped
+          return nothing
         """
-        l = elem.left
-        r = elem.right
-        u = elem.up
-        d = elem.down
-        if self.vx >= 0: # the element is moving towards right
-            x1 = l - self.w/2
-        else:
+      
+        if self.vx > 0:
+            x1 = self.right + elem.w/2
+        elif self.vx < 0:
+            x1 = self.left - elem.w/2
+
+        if self.vy > 0:
+            y1 = self.up - elem.h/2
+        elif self.vy < 0:
+            y1 = self.down + elem.h/2
+
+        elem.update(x1, y1)
+            
             
             
         
