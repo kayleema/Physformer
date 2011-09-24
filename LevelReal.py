@@ -15,7 +15,7 @@ class TutLevel(Level):
         p5=     Terrain(20,-40,40,2,0,0,100,self,0.5)
         p6=     Terrain(70,-40,40,2,0,0,100,self,.5)
         p7=     Terrain(45,20,10,2,0,0,100,self,.5)
-        b =   Block(10, -45,  2, 2, 0, 0,  1, self, 0.5)
+        b =   Block(70, -45,  2, 2, 0, 0,  1, self, 0.5)
         c =  Player(70, 5,  1, 2, 0, 0,  1, self, 0.5)
         d =   Block(7, -45, 2, 2, 0, 5,  2, self, 0.5)  
         self.add_elem(c)
