@@ -50,7 +50,7 @@ class Element(object):
         """
         gapright =  self.right - elem.left
         gapleft =   elem.right - self.left
-        gaptop =    self.top - other.bottom
+        gaptop =    self.top - elem.bottom
         gapbottom = elem.top - self.bottom
         if gapleft > 0 and gapright > 0 and gaptop > 0 and gapbottom > 0:
             if min(gapleft, gapright) < min(gaptop, gapbottom):
@@ -71,7 +71,7 @@ class Element(object):
     def touch_ammount(self, elem):
         gapright =  self.right - elem.left
         gapleft =   elem.right - self.left
-        gaptop =    self.top - other.bottom
+        gaptop =    self.top - elem.bottom
         gapbottom = elem.top - self.bottom
         direction =  self.touch(elem)
         if direction == 0:
