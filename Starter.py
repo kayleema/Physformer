@@ -14,6 +14,7 @@ pickupkey=pygame.K_SPACE
 ###### Key Names
 pygame.init()
 screen=pygame.display.set_mode((width,height)) #the dimensions of the game's screen set to widthxheight
+background = pygame.image.load("img/background.png").convert_alpha()
 current_lvl=TutLevel(width,height)
 clock = pygame.time.Clock()
 done=False #done means whether or not the window has been x-ed
@@ -23,6 +24,7 @@ while done==False:
         if event.type==quitkey:                #######
             done=True                          #####
     screen.fill((225,225,225))
+    screen.blit(background, [0,0])
     current_lvl.draw(screen)
     if clock.get_fps() != 0:
         current_lvl.sim(1/clock.get_fps())
