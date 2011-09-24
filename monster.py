@@ -18,6 +18,7 @@ class Monster(Element):
         if abs(self.x_ori - self.x) > self.x_lim:
             self.vx = -self.vx
         self.vy = 0
+        print(self.exist)
         super(Monster, self).sim(time)
 
     def move(self, elem):
@@ -33,7 +34,8 @@ class Monster(Element):
         if isinstance(elem, Block):
             super(Monster, self).collide(elem)
         elif isinstance(elem, Player):
-            self.exist = False
+            self.set_exist(False)
+            
             """direction = self.touch(elem)
             if direction == 4:
                 self.exist = False

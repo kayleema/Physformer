@@ -23,6 +23,9 @@ class Element(object):
         self.update(x_co, y_co)
         self.af = 0.5
 
+    def set_exist(self, x):
+        self.exist = x
+
     def update(self, x1, y1):
         """
         update the position of element

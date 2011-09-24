@@ -1,11 +1,9 @@
 from elements import *
-from TiledGraphics import TiledGraphics
 
 class Terrain(Element):
 
     def __init__(self, x_co, y_co, w_co, h_co, vx_co, vy_co, mass, world_name, c_co):
         super(Terrain, self).__init__(x_co, y_co, w_co, h_co, vx_co, vy_co, mass, world_name, c_co)
-        self.graphics = TiledGraphics("img/terrainsingletile.png", 40, 40)
 
     def sim(self, time):
         pass
@@ -21,8 +19,8 @@ class Terrain(Element):
         from block import Block
         from player import Player
         from monster import Monster
-        if isinstance(elem, Monster):
-            pass
+        
+ 
         if isinstance(elem, Block):
             super(Terrain, self).collide(elem)
         elif isinstance(elem, Player):
@@ -32,4 +30,10 @@ class Terrain(Element):
             else:
                 elem.vy = 0
                 elem.grounded = True
+        if isinstance(elem, Monster):
+            direction = self.touch(elem)
+            if direction == 0 or direction == 3:
+                elem.vx = 0
+            else:
+                elem.vy =  0
  
