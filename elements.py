@@ -21,6 +21,7 @@ class Element(object):
         self.m = mass
         self.c = c_co
         self.update(x_co, y_co)
+        self.af = 0.5
 
     def update(self, x1, y1):
         """
@@ -127,8 +128,16 @@ class Element(object):
         direction = self.touch(elem)
         coef = (self.c + elem.c)/2
         if direction == 1 or direction == 3:
+            if elem.vy > 0:
+                elem.vy = max(0, elem.vy - self.af * abs(elem.vx))
+            else:
+                elem.vy = min(0, elem.vy + self.af * abs(elem.vx))
             elem.vx = self.phy_for(self.vx, elem.vx, self.m, elem.m, coef)
         elif direction == 2 or direction == 4:
+            if elem.vx > 0:
+                elem.vx = max(0, elem.vx - self.af * abs(elem.vy))
+            else:
+                elem.vx = min(0, elem.vx + self.af * abs(elem.vy))
             elem.vy = self.phy_for(self.vy, elem.vy, self.m, elem.m, coef)
         else:
             return
