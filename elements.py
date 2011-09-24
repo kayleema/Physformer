@@ -1,8 +1,9 @@
+from Graphics import Graphics
 """This file has element class which contains everything you can see
 """
 
 class Element():
-    def __init__(self, x_co, y_co, w_co, h_co, vx_co, vy_co, mass, world_name, c_co):
+    def __init__(self, x_co, y_co, w_co, h_co, vx_co, vy_co, mass, level_co, c_co):
         """
         initialize everything
         x_co, y_co: the center coordinates.
@@ -16,7 +17,7 @@ class Element():
         self.h = h_co
         self.vx = vx_co
         self.vy = vy_co
-        sefl.myworld = world_name
+        self.mylevel = level_co
         self.left = x_co - w_co/2
         self.right = x_co + w_co/2
         self.up = y_co - h_co/2
@@ -52,8 +53,6 @@ class Element():
         return self.vx
     def get_vy(self):
         return self.vy
-    def get_myworld(self):
-        return self.myworld
     def get_left(self):
         return self.left
     def get_right(self):
@@ -141,6 +140,7 @@ class Element():
         simulate the element move in the certain direction for certain time.
         REMEMBER TO CHECK!
         """
+        self.vy += mylevel.g * time
         x1 = self.x + time * self.vx
         y1 = self.y + time * self.vy
         update(x1, y1)
