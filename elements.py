@@ -2,7 +2,7 @@ from Graphics import Graphics
 """This file has element class which contains everything you can see
 """
 
-class Element:
+class Element(object):
     def __init__(self, x_co, y_co, w_co, h_co, vx_co, vy_co, mass, level_co, c_co):
         """
         initialize everything

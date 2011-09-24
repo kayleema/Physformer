@@ -1,6 +1,6 @@
 import pygame
 
-class Graphics():
+class Graphics(object):
     def __init__(self, element):
         self.color = (0, 255, 0)
         self.elem = element
