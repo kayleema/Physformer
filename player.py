@@ -36,6 +36,8 @@ class Player(Element):
         change the health with certain amount in case of damage or curation
         """
         self.health +=amount
+        if self.health <= 0:
+            self.exit = False
 
     
     def move(self, elem):

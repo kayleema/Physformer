@@ -11,7 +11,7 @@ class Element(object):
         vx_co, vy_co: speed to 2 coordinates.
         c_co: coefficient of restitution
         """
-
+        self.exist = True
         self.w = w_co
         self.h = h_co
         self.vx = vx_co
