@@ -91,7 +91,11 @@ class Element():
         """
         l = elem.
         if self.vx >= 0: # the element is moving towards right
-            x1 = 
+            x1 =
+
+
+    def collide(self, elem):
+        
             
         
         
