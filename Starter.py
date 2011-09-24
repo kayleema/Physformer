@@ -1,7 +1,7 @@
 import pygame
 import os
 import math
-
+from TutLevel import TutLevel
 height=900 #height of the game window's screen
 width=1800 #width
 ####### Key Names
@@ -12,7 +12,7 @@ upkey=pygame.K_UP
 downkey=pygame.K_DOWN
 pickupkey=pygame.K_SPACE
 ###### Key Names
-current_lvl=testlvl(width,height,player)
+current_lvl=TutLevel(width,height)
 pygame.init()
 p1=elems[0]
 screen=pygame.display.set_mode((width,height)) #the dimensions of the game's screen set to widthxheight
@@ -35,25 +35,14 @@ while done==False:
 				current_lvl.player.moveup=True
 			if event.key == downkey:
 				current_lvl.player.movedown=True
-		if event.type==pygame.KEYDOWN
+		if event.type==pygame.KEYUP
 			if event.key == leftkey:
-				current_lvl.player.moveleft=True
+				current_lvl.player.moveleft=False
 			if event.key == rightkey:
-				current_lvl.player.moveright=True
+				current_lvl.player.moveright=False
 			if event.key == upkey:
-				current_lvl.player.moveup=True
+				current_lvl.player.moveup=False
 			if event.key == downkey:
-				current_lvl.player.movedown=True
+				current_lvl.player.movedown=False
 		
     clock.tick()
-
-
-
-
-
-
-
-
-
-
-	
