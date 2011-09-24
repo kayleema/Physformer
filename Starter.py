@@ -1,6 +1,6 @@
 import pygame
 import os
-from TutLevel import TutLevel
+from Level1 import TutLevel
 height=600 #height of the game window's screen
 width=800 #width
 ####### Key Names
