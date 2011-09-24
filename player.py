@@ -54,7 +54,7 @@ class Player(Element):
                             closest_dist = dist
                             closest = element
                         if closest_dist < 5:
-                            print(closest)
+                            #print(closest)
                             closest.x = self.x
                             closest.y = self.top - closest.h
                             closest.update(closest.x, closest.y)
@@ -75,7 +75,7 @@ class Player(Element):
         self.health +=amount
         self.recovery = 1
         if self.health <= 0:
-            print("DEATH")
+            #print("DEATH")
             self.mylevel.game_won = False
             self.mylevel.game_over = True
 

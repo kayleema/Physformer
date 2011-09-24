@@ -51,6 +51,8 @@ while done==False:
                 current_lvl.sim(1/clock.get_fps())
             for event in events:
                 if event.type==pygame.KEYDOWN:
+                    if event.key==pygame.K_q:
+                        levelselected=False
                     if event.key==pickupkey:
                         if option==1:
                             current_lvl=TutLevel.TutLevel(width,height)
@@ -87,7 +89,6 @@ while done==False:
                 if option<1:
                     option=1
                 if event.key == rightkey:
-                    print("starting")
                     if option==1:
                         current_lvl=TutLevel.TutLevel(width,height)
                     if option==2:
