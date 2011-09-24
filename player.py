@@ -17,15 +17,15 @@ class Player(Element):
 
     def sim(self, time):
         if self.moveleft:
-            self.vx = -run_velocity
+            self.vx = -self.run_velocity
         elif self.moveright:
-            self.vx =  run_velocity
+            self.vx =  self.run_velocity
         else:
             self.vx = 0
 
-        if self.moveup and grounded:
-            self.vy = -jump_velocity
-            grounded = False
+        if self.moveup and self.grounded:
+            self.vy = -self.jump_velocity
+            self.grounded = False
         
         super(Player, self).sim(time)
 
