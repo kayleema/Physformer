@@ -1,4 +1,5 @@
 from elements import *
+from TiledGraphics import TiledGraphics
 
 class Terrain(Element):
 
