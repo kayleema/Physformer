@@ -30,12 +30,20 @@ while done==False:
     screen.fill((225,225,225))
     if levelselected:
         if current_lvl.game_over:
-            font=pygame.font.Font(None, 40)
-            text = font.render("EFF YES",True,(0,0,0))
-            screen.blit(text,[width/2,height/2])
-            for event in events:
-                if event.type==pygame.KEYDOWN:
-                    levelselected=False
+            if current_lvl.game_won:
+                font=pygame.font.Font(None, 50)
+                text = font.render("EFF YEZ",True,(0,0,0))
+                screen.blit(text,[width*2/5,height/2])
+                for event in events:
+                    if event.type==pygame.KEYDOWN:
+                        levelselected=False
+            else:
+                font=pygame.font.Font(None, 40)
+                text = font.render("YOU GOT OWNED DESOOO",True,(0,0,0))
+                screen.blit(text,[width/4,height/2])
+                for event in events:
+                    if event.type==pygame.KEYDOWN:
+                        levelselected=False
         else:
             screen.blit(background, [0,0])
             current_lvl.draw(screen)
