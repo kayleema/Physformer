@@ -21,7 +21,7 @@ class Element(object):
         self.m = mass
         self.c = c_co
         self.update(x_co, y_co)
-        self.af = 0.3
+        self.af = 0.9
 
     def set_exist(self, x):
         self.exist = x
@@ -32,10 +32,10 @@ class Element(object):
         """
         self.x = x1
         self.y = y1
-        self.left = self.x - self.w/2
-        self.right = self.x + self.w/2
-        self.top = self.y - self.h/2
-        self.bottom = self.y + self.h/2
+        self.left = self.x - self.w/2.0
+        self.right = self.x + self.w/2.0
+        self.top = self.y - self.h/2.0
+        self.bottom = self.y + self.h/2.0
         
         
     def in_inter(self, x, a, b):

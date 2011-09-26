@@ -59,10 +59,13 @@ class Player(Element):
                             closest.y = self.top - closest.h
                             closest.update(closest.x, closest.y)
                             self.picked_up = closest
+
         if self.picked_up != False:
             self.picked_up.x = self.x
             self.picked_up.y = self.top - self.picked_up.h
             self.picked_up.update(self.picked_up.x, self.picked_up.y)
+            self.picked_up.vx = 0
+            self.picked_up.vy = 0
 
         super(Player, self).sim(time)
 
