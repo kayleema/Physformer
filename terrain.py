@@ -1,11 +1,12 @@
 from elements import *
-from TiledGraphics import TiledGraphics
+from TiledBoxGraphics import TiledBoxGraphics
 
 class Terrain(Element):
     
     def __init__(self, x_co, y_co, w_co, h_co, vx_co, vy_co, mass, world_name, c_co):
         super(Terrain, self).__init__(x_co, y_co, w_co, h_co, vx_co, vy_co, mass, world_name, c_co)
-        self.graphics = TiledGraphics("img/sandstone.png", self.mylevel.meter, self.mylevel.meter)
+        self.graphics = TiledBoxGraphics(self, "img/tilec.png", "img/tileel.png", "img/tileer.png", "img/tileeu.png", "img/tileed.png", "img/tileul.png", "img/tileur.png", "img/tiledl.png", "img/tiledr.png")
+
     def sim(self, time):
         pass
 
