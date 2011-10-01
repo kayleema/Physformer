@@ -14,9 +14,7 @@ class Block(Element):
         self.moveup = False
         self.movedown = False
         self.health = 100
-        if (self.w == 2) and (self.h == 2):
-            self.graphics = TiledGraphics("img/brownsingletile.png", 40, 40)
-            #self.graphics = ImageGraphics("img/sq80.png")
+        self.graphics = TiledGraphics("img/brownsingletile.png", self.mylevel.meter*self.w, self.mylevel.meter*self.h)
 
     def collide(self, elem):
         from terrain import Terrain

@@ -17,7 +17,7 @@ class Player(Element):
         self.movedown = False
         self.health = 100
         self.grounded = False
-        self.graphics = ImageGraphics("img/ninja.png")
+        self.graphics = ImageGraphics("img/ninja.png", self.w*self.mylevel.meter, self.h*self.mylevel.meter)
         self.picked_up = False
         self.recovery = 0
 
@@ -43,6 +43,7 @@ class Player(Element):
                 self.picked_up.vx = self.vx
                 self.picked_up.vy = self.vy
                 self.picked_up = False
+                self.movedown = False
             else:
                 self.movedown = False
                 closest = 0

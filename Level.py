@@ -13,8 +13,8 @@ class Level(object):
         self.h=height
         self.elem_list=[]
         self.frame=[0,0,width,height]
-        self.g=14
-        self.meter=40
+        self.g=14.0
+        self.meter=30.0
         self.game_over = False
         self.game_won = True
     

@@ -15,19 +15,19 @@ class TutLevel(Level):
         ##initialize blocks##
         boxtop = Terrain(20, -19, 40, 2, 0, 0,100, self, 0.5)
         boxleft= Terrain(-1,-5,2,30,0,0,100,self,0.5)
-        boxbottom= Terrain(23,9,46,2,0,0,100,self,0.5)
-        boxright= Terrain(47,-5,2,30,0,0,100,self,0.5)
+        boxbottom= Terrain(27.0,9.0,54.0,2.0,0.0,0.0,100,self,0.5)
+        boxright= Terrain(55,-5,2,30,0,0,100,self,0.5)
 
-        goal= Goal(44,5,1,5,0,0,100,self,0.5)
+        goal= Goal(53,5,1,5,0,0,100,self,0.5)
         
         
-        b =   Block(2, 2,  2, 2, 0, 0,  1, self, 0.5)
+        b =   Block(2, 2,  4, 1, 0, 0,  1, self, 0.5)
         c =  Player(7, 5,  1, 2, 0, 0,  1, self, 0.5)
-        d =   Block(4, 2, 2, 2, 0, 5,  2, self, 0.5)  
+        d =   Block(4, 2, 4, 1, 0, 5,  2, self, 0.5)  
         a =   GoalBlock(4, 5, 2, 2, 0, 5,  2, self, 0.5) 
         m = Trampoline(30, -4, 2, 1, 0, 0, 1, self, 0.5)
-        e = Spike(23, 8, 29, 1, 0, 0, 100, self, 0.1)
-        f = Spike(23, 6, 1, 1, 0, 0, 100, self, 0.1)
+        e = Spike(30.0, 7.5, 41.0, 1.0, 0.0, 0.0, 100, self, 0.1)
+        f = Spike(29.0, 6.5, 1.0, 1.0, 0.0, 0.0, 100, self, 0.1)
         self.add_elem(c)
         self.add_elem(m)
         self.add_elem(b)
