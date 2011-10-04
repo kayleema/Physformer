@@ -17,6 +17,7 @@ class Level(object):
         self.meter=30.0
         self.game_over = False
         self.game_won = True
+        self.frame = [0, 0, 100, 100]
     
     def sim(self,time):
         i=0                 ### Checking touching loop (with collide)
@@ -36,12 +37,14 @@ class Level(object):
         for elem in self.elem_list:
             if elem.exist:
                 elem.sim(time)
+        x=self.get_player().x*self.meter - self.w/2
+        y=self.get_player().y*self.meter - self.w/2
+        self.frame[0] += (x-self.frame[0]) ** 3 * time / 10000
+        self.frame[1] += (y-self.frame[1]) ** 3 * time / 10000
+        self.frame[2] = self.frame[0] + self.w
+        self.frame[3] = self.frame[1] + self.h
     
     def draw(self,screen):
-        x=self.get_player().x*self.meter
-        y=self.get_player().y*self.meter
-
-        self.frame=[x-self.w/2,y-self.h/2,self.w/2+x,self.h/2+y]
         for elem in self.elem_list:
             #print(elem.exist)
             if elem.within_screen(self.frame[0],self.frame[2],self.frame[1],self.frame[3]) and elem.exist:
