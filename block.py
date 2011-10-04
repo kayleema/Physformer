@@ -6,7 +6,7 @@ class Block(Element):
     
     
     def __init__(self, x_co, y_co, w_co, h_co, vx_co, vy_co, mass, world_name, c_co):
-        super(Block, self).__init__(x_co, y_co, w_co, h_co, vx_co, vy_co, mass, world_name, c_co)
+        Element.__init__(self, x_co, y_co, w_co, h_co, vx_co, vy_co, mass, world_name, c_co)
         # self.ax = acc_x
         # self.ay = acc_y
         self.moveleft = False
@@ -35,4 +35,4 @@ class Block(Element):
             return
         if isinstance(elem, Player):
             elem.grounded = True
-        super(Block, self).move(elem)
+        Element.move(self, elem)

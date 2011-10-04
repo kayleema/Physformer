@@ -8,7 +8,7 @@ class Player(Element):
     jump_velocity = 10
     
     def __init__(self, x_co, y_co, w_co, h_co, vx_co, vy_co, mass, world_name, c_co):
-        super(Player, self).__init__(x_co, y_co, w_co, h_co, vx_co, vy_co, mass, world_name, c_co)
+        Element.__init__(self, x_co, y_co, w_co, h_co, vx_co, vy_co, mass, world_name, c_co)
         # self.ax = acc_x
         # self.ay = acc_y
         self.moveleft = False
@@ -68,7 +68,7 @@ class Player(Element):
             self.picked_up.vx = 0
             self.picked_up.vy = 0
 
-        super(Player, self).sim(time)
+        Element.sim(self, time)
 
     def ch_health(self, amount):
         """
@@ -90,13 +90,13 @@ class Player(Element):
             Monster.exist = False
 
         if not isinstance(elem, Terrain):
-            super(Player, self).move(elem)
+            Element.move(self, elem)
 
     def collide(self, elem):
         from monster import Monster
         if isinstance(elem, Monster):
             pass
         if not isinstance(elem, Terrain):
-            super(Player, self).collide(elem)
+            Element.collide(self, elem)
 
     

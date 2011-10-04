@@ -11,7 +11,7 @@ from Trampoline import Trampoline
 
 class TutLevel(Level):
     def __init__(self, width, height):
-        super(TutLevel, self).__init__(width, height)
+        Level.__init__(self, width, height)
         ##initialize blocks##
         boxtop = Terrain(20, -19, 40, 2, 0, 0,100, self, 0.5)
         boxleft= Terrain(-1,-5,2,30,0,0,100,self,0.5)

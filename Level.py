@@ -40,6 +40,7 @@ class Level(object):
     def draw(self,screen):
         x=self.get_player().x*self.meter
         y=self.get_player().y*self.meter
+
         self.frame=[x-self.w/2,y-self.h/2,self.w/2+x,self.h/2+y]
         for elem in self.elem_list:
             #print(elem.exist)

@@ -20,7 +20,7 @@ class Monster(Element):
             self.vx = -self.vx
         self.vy = 0
         #print(self.exist) # Test
-        super(Monster, self).sim(time)
+        Element.sim(self, time)
 
     def move(self, elem):
         from terrain import Terrain
@@ -34,7 +34,7 @@ class Monster(Element):
         from player import Player
         from terrain import Terrain
         if isinstance(elem, Block):
-            super(Monster, self).collide(elem)
+            Element.collide(self, elem)
         elif isinstance(elem, Player):
             self.set_exist(False)
             
