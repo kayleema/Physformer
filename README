@@ -1,0 +1,10 @@
+Physformer
+=================
+
+A simple platformer game written in python and utilizing pygame, built for a 
+hackathon (24-hour coding competition) at UC Berkeley sponsored by Yahoo.
+
+More information about our experience at the hackathon can be found here:
+http://goo.gl/V82QQ
+
+Compatible with both python2 and python3.
